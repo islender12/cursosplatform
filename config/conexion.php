@@ -1,19 +1,20 @@
 <?php
 
-class Conectar {
+class Conectar
+{
 
-    protected $dbh;
+    private $dsn = 'mysql:dbname=templatehtmlphp;host=localhost';
+    private $user = 'desarrollo';
+    private $passwd = 'devprojects23';
 
-    protected function Conexion(){
-        try{
+    public function Conexion()
+    {
 
-            $conectar = $this->dbh = new PDO('mysql:host=localhost;dbname=templatehtmlphp','root','');
-
-            return $conectar;
-
-        }catch(Exception $e){
-            echo "Error:".$e->getMessage();
+        try {
+            $conexion = new PDO($this->dsn, $this->user, $this->passwd);
+            return $conexion;
+        } catch (PDOException $e) {
+            echo 'Ha Ocurrido Un Error: ' . $e->getMessage();
         }
     }
-
 }

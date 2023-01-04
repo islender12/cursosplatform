@@ -1,5 +1,6 @@
 ﻿<?php
-require 'models/plantilla.php';
+require '../models/plantilla.php';
+// Instanciamos la clase Socialmedia
 $socialmedia = new Socialmedia;
 $smx = $socialmedia->get_socialmedia();
 
