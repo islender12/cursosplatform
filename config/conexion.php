@@ -4,8 +4,8 @@ class Conectar
 {
 
     private $dsn = 'mysql:dbname=templatehtmlphp;host=localhost';
-    private $user = 'desarrollo';
-    private $passwd = 'devprojects23';
+    private $user = 'root';
+    private $passwd = '';
 
     public function Conexion()
     {

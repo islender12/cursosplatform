@@ -1,28 +1,6 @@
 ﻿<?php
-require '../models/plantilla.php';
-// Instanciamos la clase Socialmedia
-$socialmedia = new Socialmedia;
-$smx = $socialmedia->get_socialmedia();
-
-$langProgramming = new LangProgramming;
-$langP = $langProgramming->get_lang();
-
+require "./header.php";
 ?>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cursos - AnderCode</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets\imgs\theme\favicon.png">
-    <!-- NewsBoard CSS  -->
-    <link rel="stylesheet" href="assets\css\style.css">
-    <link rel="stylesheet" href="assets\css\widgets.css">
-    <link rel="stylesheet" href="assets\css\responsive.css">
-</head>
 
 <body>
     <div class="scroll-progress primary-bg"></div>
@@ -122,9 +100,24 @@ $langP = $langProgramming->get_lang();
     <header class="main-header header-style-1 font-heading">
         <div class="header-top">
             <div class="container">
-                <div class="row pt-20 pb-20">
-                    <div class="col-md-3 col-xs-6">
+                <div class="row pt-20 pb-20 justify-content-between">
+                    <div class="col-md-6 col-xs-6">
                         <a href="index.html"><img class="logo" src="assets\imgs\theme\logo.png" alt=""></a>
+                    </div>
+                    <div class="col-md-6 col-xs-6 d-none d-lg-flex">
+                        <div class="row align-items-center">
+                            <div class="col-md-8 col-xs-6">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Busqueda" aria-label="Busqueda">
+                                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="elegant-icon icon_search"></i></button>
+                                </form>
+                            </div>
+                            <div class="col-md-4 col-xs-6">
+                                <a href="#" class="font-weight-bold mx-2">Login</a>
+                                <a href="#" class="font-weight-bold mx-2">Registro</a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,7 +141,7 @@ $langP = $langProgramming->get_lang();
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
                             <li class="menu-item-has-children">
                                 <a href="index.php">Inicio</a>
-                                <ul class="sub-menu text-muted font-small d-flex justify-content-around">
+                                <ul class="sub-menu text-muted font-small">
                                     <li><a href="page-login.html" class="font-weight-bold">Login</a></li>
                                     <li><a href="page-register.html" class="font-weight-bold">Registro</a></li>
                                 </ul>
@@ -210,15 +203,6 @@ $langP = $langProgramming->get_lang();
                         <div class="col-md-4 align-self-center">
                             <h5 class="widget-title">Nuestros Cursos</h5>
                         </div>
-                        <div class="col-md-8 text-md-right font-small align-self-center">
-                            <p class="d-inline-block mr-5 mb-0"><i class="elegant-icon  icon_tag_alt mr-5 text-muted"></i>Etiquetas:</p>
-                            <ul class="list-inline d-inline-block tags">
-                                <li class="list-inline-item"><a href="#"># PHP</a></li>
-                                <li class="list-inline-item"><a href="#"># Node JS</a></li>
-                                <li class="list-inline-item"><a href="#"># Laravel</a></li>
-                                <li class="list-inline-item"><a href="#"># SQL</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -229,39 +213,31 @@ $langP = $langProgramming->get_lang();
                             <div class="arrow-cover"></div>
                             <div class="slide-fade">
                                 <div class="position-relative post-thumb">
-                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-4.jpg)">
+                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/php-mysql.png)">
+                                        <span class="top-right-icon bg-info"><i id="pencil" class="elegant-icon icon_pencil"></i></span>
                                         <a class="img-link" href="single.html"></a>
-                                        <span class="top-left-icon bg-warning"><i class="elegant-icon icon_star_alt"></i></span>
                                         <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
                                             <div class="entry-meta meta-0 font-small mb-20">
-                                                <a href="#"><span class="post-cat text-info text-uppercase">Travel</span></a>
-                                                <a href="#"><span class="post-cat text-success text-uppercase">Animal</span></a>
+                                                <a href="#"><span class="post-cat text-info text-uppercase">PHP</span></a>
+                                                <a href="#"><span class="post-cat text-success text-uppercase">MYSQL</span></a>
                                             </div>
                                             <h3 class="post-title font-weight-900 mb-20">
-                                                <a class="text-white" href="single.html">Beachmaster Elephant Seal Fights off Rival Male, The match is uncompromising</a>
+                                                <a class="text-white" href="single.html">Desarrollo Web PHP-MYSQL</a>
                                             </h3>
-                                            <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                                                <span class="post-on">20 minutes ago</span>
-                                                <span class="hit-count has-dot">23k Views</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="position-relative post-thumb">
-                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-6.jpg)">
+                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/laravel-angular.jpg)">
                                         <a class="img-link" href="#"></a>
-                                        <span class="top-left-icon bg-danger"><i class="elegant-icon icon_image"></i></span>
                                         <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
+
                                             <div class="entry-meta meta-0 font-small mb-20">
-                                                <a href="#"><span class="post-cat text-info text-uppercase">Lifestyle</span></a>
+                                                <a href="#"><span class="post-cat text-info text-uppercase">PHP</span></a>
                                             </div>
                                             <h3 class="post-title font-weight-900 mb-20">
-                                                <a class="text-white" href="#">Curso #3</a>
+                                                <a class="text-white" href="#">LARAVEL + ANGULAR</a>
                                             </h3>
-                                            <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                                                <span class="post-on">26 August 2020</span>
-                                                <span class="hit-count has-dot">18k Views</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -387,65 +363,9 @@ $langP = $langProgramming->get_lang();
             </div>
         </div>
     </main>
-    <!-- End Main content -->
-
-    <!-- Footer Start-->
-    <footer class="pt-50 pb-20 bg-grey">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sidebar-widget wow fadeInUp animated mb-30 text-center">
-                        <div class="textwidget">
-                            <strong class="color-black">Sigueme</strong><br>
-                            <ul class="header-social-network d-inline-block list-inline color-white mb-20 mt-4">
-                                <!-- Recorremos todos los icones de redes Sociales -->
-                                <?php
-                                foreach ($smx as $social) {
-
-                                    if (empty($social['sm_rutaweb'])) {
-                                        $link = "#";
-                                    } else {
-                                        $link = $social['sm_rutaweb'];
-                                    }
-
-                                    echo '<li class="list-inline-item"><a class="' . $social['sm_icon1'] . '" href="' . $link . '" target="_blank" title="' . ucfirst($social['sm_nom']) . '"><i class="elegant-icon ' . $social['sm_icon2'] . '"></i></a></li>';
-                                }
-                                ?>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-small text-muted">© 2021, Stories - Personal Blog HTML Template </p>
-                <p class="float-md-right font-small text-muted">
-                    Design by <a href="https://alithemes.com" target="_blank">AliThemes</a> | All rights reserved
-                </p>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-    <div class="dark-mark"></div>
-    <!-- Vendor JS-->
-    <script src="assets\js\vendor\modernizr-3.5.0.min.js"></script>
-    <script src="assets\js\vendor\jquery-1.12.4.min.js"></script>
-    <script src="assets\js\vendor\popper.min.js"></script>
-    <script src="assets\js\vendor\bootstrap.min.js"></script>
-    <script src="assets\js\vendor\jquery.slicknav.js"></script>
-    <script src="assets\js\vendor\slick.min.js"></script>
-    <script src="assets\js\vendor\wow.min.js"></script>
-    <script src="assets\js\vendor\jquery.ticker.js"></script>
-    <script src="assets\js\vendor\jquery.vticker-min.js"></script>
-    <script src="assets\js\vendor\jquery.scrollUp.min.js"></script>
-    <script src="assets\js\vendor\jquery.nice-select.min.js"></script>
-    <script src="assets\js\vendor\jquery.magnific-popup.js"></script>
-    <script src="assets\js\vendor\jquery.sticky.js"></script>
-    <script src="assets\js\vendor\perfect-scrollbar.js"></script>
-    <script src="assets\js\vendor\waypoints.min.js"></script>
-    <script src="assets\js\vendor\jquery.theia.sticky.js"></script>
-    <!-- NewsBoard JS -->
-    <script src="assets\js\main.js"></script>
+    <?php
+    require "./footer.php";
+    ?>
 </body>
 
 </html>
