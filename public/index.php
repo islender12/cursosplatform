@@ -112,8 +112,10 @@ require "./header.php";
                                     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="elegant-icon icon_search"></i></button>
                                 </form>
                             </div>
-                            <div class="col-md-4 col-xs-6">
+                            <div class="col-md-2 col-xs-3">
                                 <a href="#" class="font-weight-bold mx-2">Login</a>
+                            </div>
+                            <div class="col-md-2 col-xs-3">
                                 <a href="#" class="font-weight-bold mx-2">Registro</a>
                             </div>
 
