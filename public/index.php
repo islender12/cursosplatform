@@ -1,5 +1,12 @@
 ﻿<?php
-require "./header.php";
+require './route.php';
+section('header.php');
+recursos('models/plantilla.php');
+// Instanciamos la clase Socialmedia
+$socialmedia = new Socialmedia;
+$smx = $socialmedia->get_socialmedia();
+$langProgramming = new LangProgramming;
+$langP = $langProgramming->get_lang();
 ?>
 
 <body>
@@ -38,7 +45,7 @@ require "./header.php";
                             <div class="d-flex hover-up-2 transition-normal">
                                 <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                                     <a class="color-white" href="single.html">
-                                        <img src="assets\imgs\news\thumb-1.jpg" alt="">
+                                        <img src="<?php assets('imgs\news\thumb-1.jpg') ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-content media-body">
@@ -54,7 +61,7 @@ require "./header.php";
                             <div class="d-flex hover-up-2 transition-normal">
                                 <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                                     <a class="color-white" href="single.html">
-                                        <img src="assets\imgs\news\thumb-2.jpg" alt="">
+                                        <img src="<?php assets('imgs\news\thumb-2.jpg') ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-content media-body">
@@ -70,7 +77,7 @@ require "./header.php";
                             <div class="d-flex hover-up-2 transition-normal">
                                 <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                                     <a class="color-white" href="single.html">
-                                        <img src="assets\imgs\news\thumb-3.jpg" alt="">
+                                        <img src="<?php assets('imgs\news\thumb-3.jpg') ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-content media-body">
@@ -91,7 +98,7 @@ require "./header.php";
                     <h5 class="mt-5 mb-30">Advertise banner</h5>
                 </div>
                 <a href="https://themeforest.net/user/alithemes/portfolio" target="_blank">
-                    <img class="advertise-img border-radius-5" src="assets\imgs\ads\ads-1.jpg" alt="">
+                    <img class="advertise-img border-radius-5" src="<?php assets('imgs\ads\ads-1.jpg') ?>" alt="">
                 </a>
             </div>
         </div>
@@ -102,7 +109,7 @@ require "./header.php";
             <div class="container">
                 <div class="row pt-20 pb-20 justify-content-between">
                     <div class="col-md-6 col-xs-6">
-                        <a href="index.html"><img class="logo" src="assets\imgs\theme\logo.png" alt=""></a>
+                        <a href="index.html"><img class="logo" src="<?php assets('imgs\theme\logo.png') ?>" alt=""></a>
                     </div>
                     <div class="col-md-6 col-xs-6 d-none d-lg-flex">
                         <div class="row align-items-center">
@@ -193,7 +200,7 @@ require "./header.php";
                         <h5 class="text-muted">Da un Impulso a tu Carrera como Desarrollador Web</h5>
                     </div>
                     <div class="col-lg-6 text-right d-none d-lg-block">
-                        <img src="assets\imgs\authors\LearningProgramming.jpg" alt="">
+                        <img src="<?php assets('imgs\authors\LearningProgrammingrm.png') ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -215,7 +222,7 @@ require "./header.php";
                             <div class="arrow-cover"></div>
                             <div class="slide-fade">
                                 <div class="position-relative post-thumb">
-                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/php-mysql.png)">
+                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/php-mysql.png') ?>)">
                                         <span class="top-right-icon bg-info"><i id="pencil" class="elegant-icon icon_pencil"></i></span>
                                         <a class="img-link" href="single.html"></a>
                                         <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
@@ -230,7 +237,7 @@ require "./header.php";
                                     </div>
                                 </div>
                                 <div class="position-relative post-thumb">
-                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/laravel-angular.jpg)">
+                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/laravel-angular.jpg') ?>)">
                                         <a class="img-link" href="#"></a>
                                         <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
 
@@ -248,7 +255,7 @@ require "./header.php";
                     </div>
                     <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                         <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-1.jpg)">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/news-1.jpg') ?>)">
                                 <a class="img-link" href="single.html"></a>
                                 <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
                                 <ul class="social-share">
@@ -278,7 +285,7 @@ require "./header.php";
                     </article>
                     <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">
                         <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-7.jpg)">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/news-7.jpg') ?>)">
                                 <a class="img-link" href="single.html"></a>
                                 <ul class="social-share">
                                     <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
@@ -306,7 +313,7 @@ require "./header.php";
                     </article>
                     <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                         <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-9.jpg)">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/news-9.jpg') ?>)">
                                 <a class="img-link" href="single.html"></a>
                                 <ul class="social-share">
                                     <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
@@ -334,7 +341,7 @@ require "./header.php";
                     </article>
                     <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.4s">
                         <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-11.jpg)">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets('imgs/news/news-11.jpg') ?>)">
                                 <a class="img-link" href="single.html"></a>
                                 <span class="top-right-icon bg-info"><i class="elegant-icon icon_headphones"></i></span>
                                 <ul class="social-share">
@@ -366,7 +373,7 @@ require "./header.php";
         </div>
     </main>
     <?php
-    require "./footer.php";
+    section('footer.php');
     ?>
 </body>
 

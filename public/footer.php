@@ -1,5 +1,7 @@
-<!-- End Main content -->
-
+<?php
+$socialmedia = new Socialmedia;
+$smx = $socialmedia->get_socialmedia();
+?>
 <!-- Footer Start-->
 <footer class="pt-50 pb-20 bg-grey">
     <div class="container">
@@ -39,5 +41,5 @@
 <!-- End Footer -->
 <div class="dark-mark"></div>
 <?php
-require "./scripts.php";
+section('scripts.php');
 ?>

@@ -1,5 +1,4 @@
 <?php
-
-require("../config/conexion.php");
-require_once("../models/Socialmedia.php");
-require_once("../models/LangProgramming.php");
+recursos('config/conexion.php');
+recursos('models/Socialmedia.php');
+recursos('models/LangProgramming.php');
