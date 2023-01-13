@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require './route.php';
 section('header.php');
 recursos('models/plantilla.php');
