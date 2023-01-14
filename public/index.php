@@ -227,7 +227,7 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                 <?php foreach ($curso as $curso) { ?>
                                     <div class="position-relative post-thumb">
                                         <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']); ?>)">
-                                            <span class="top-right-icon bg-info"><i id="<?php $curso['cur_id']?>" class="elegant-icon icon_pencil"></i></span>
+                                            <span class="top-right-icon bg-info"><i id="<?php $curso['cur_id'] ?>" class="elegant-icon icon_pencil"></i></span>
                                             <a class="img-link" href="single.html"></a>
                                             <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
                                                 <div class="entry-meta meta-0 font-small mb-20">
@@ -237,45 +237,48 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                                 <h3 class="post-title font-weight-900 mb-20">
                                                     <a class="text-white" href="single.html"><?php echo strtoupper($curso['cur_titulo']); ?></a>
                                                 </h3>
+                                                <?php if (!empty($curso['descripcion'])) { ?>
+                                                    <p class="mt-2 font-weight-500"> <?php echo substr($curso['descripcion'],-120)?></p>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 <?php } ?>
                             </div>
                         </div>
                     </div>
-                    <?php foreach($cursoSindestacar as $curso){?>
-                    <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
-                        <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']) ?>)">
-                                <a class="img-link" href="single.html"></a>
-                                <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
-                                <ul class="social-share">
-                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
-                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
-                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="post-content p-30">
-                                <div class="d-flex post-card-content">
-                                    <h5 class="post-title mb-20 font-weight-900">
-                                        <a href="single.html"><?php echo $curso['cur_titulo']?></a>
-                                        <?php if(!empty($curso['descripcion'])){?>
-                                        <p class="my-4 font-weight-500"><?php echo $curso['descripcion']?></p>
-                                        <?php }?>
-                                    </h5>
-                                    <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                        <span class="post-on">27 Agosto</span>
-                                        <span class="time-reading has-dot">12 mins</span>
-                                        <span class="post-by has-dot">23k Vistas</span>
+                    <?php foreach ($cursoSindestacar as $curso) { ?>
+                        <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
+                            <div class="post-card-1 border-radius-10 hover-up">
+                                <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']) ?>)">
+                                    <a class="img-link" href="single.html"></a>
+                                    <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                                    <ul class="social-share">
+                                        <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="post-content p-30">
+                                    <div class="d-flex post-card-content">
+                                        <h5 class="post-title mb-20 font-weight-900">
+                                            <a href="single.html"><?php echo strtoupper($curso['cur_titulo']) ?></a>
+                                            <?php if (!empty($curso['descripcion'])) { ?>
+                                                <p class="my-4 font-weight-500"><?php echo $curso['descripcion'] ?></p>
+                                            <?php } ?>
+                                        </h5>
+                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                            <span class="post-on"><?php echo fecha($curso['fecha'])?></span>
+                                            <span class="time-reading has-dot">12 mins</span>
+                                            <span class="post-by has-dot">23k Vistas</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-                    <?php }?>
+                        </article>
+                    <?php } ?>
                 </div>
             </div>
         </div>
