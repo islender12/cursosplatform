@@ -1,15 +1,9 @@
 <?php
 require_once './route.php';
-section('header.php');
 recursos('models/plantilla.php');
-// Instanciamos la clase Socialmedia
-$socialmedia = new Socialmedia;
-$smx = $socialmedia->get_socialmedia();
-$langProgramming = new LangProgramming;
-$langP = $langProgramming->get_lang();
-$cursos = new Cursos();
-$curso = $cursos->listar();
-$cursoSindestacar = $cursos->listaSinDestacar();
+require './controllers/cursocontroller.php';
+section('header.php');
+
 ?>
 
 <body>
@@ -141,7 +135,7 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                     <nav>
                         <!--Desktop menu-->
                         <ul class="main-menu d-none d-lg-inline font-small">
-                            <li><a href="<?php header("Location: /") ?>">INICIO</a> </li>
+                            <li><a href="/">INICIO</a> </li>
                             <?php
                             foreach ($langP as $langMenu) {
                                 echo '<li><a href="#">' . strtoupper($langMenu['lang_nom']) . '</a></li>';
@@ -194,65 +188,19 @@ $cursoSindestacar = $cursos->listaSinDestacar();
     </header>
 
     <main>
-        <div class="featured-1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 align-self-center">
-                        <p class="text-muted"><span class="typewrite d-inline" data-period="1800" data-type='[ " Desarrollo Web. ", "Aprende Con Nosotros ", "Y Conviertete en Programador Web." ]'></span></p>
-                        <h2>Hola, Aprende <span>¡Desarrollo Web!</span></h2>
-                        <h5 class="text-muted">Da un Impulso a tu Carrera como Desarrollador Web</h5>
-                    </div>
-                    <div class="col-lg-6 text-right d-none d-lg-block">
-                        <img src="<?php assets('imgs\authors\LearningProgrammingrm.png') ?>" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
-            <div class="hot-tags pt-30 pb-30 font-small align-self-center">
-                <div class="widget-header-3">
-                    <div class="row align-self-center">
-                        <div class="col-md-4 align-self-center">
-                            <h5 class="widget-title">Nuestros Cursos</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="loop-grid mb-30">
                 <div class="row">
-                    <div class="col-lg-8 mb-30">
-                        <div class="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
-                            <div class="arrow-cover"></div>
-                            <div class="slide-fade">
-                                <?php foreach ($curso as $curso) { ?>
-                                    <div class="position-relative post-thumb">
-                                        <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']); ?>)">
-                                            <span class="top-right-icon bg-info"><i id="<?php $curso['cur_id'] ?>" class="elegant-icon icon_pencil"></i></span>
-                                            <a class="img-link" href="<?php cursos_url($curso['slug']) ?>"></a>
-                                            <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
-                                                <div class="entry-meta meta-0 font-small mb-20">
-                                                    <a href="#"><span class="post-cat text-info text-uppercase">PHP</span></a>
-                                                    <a href="#"><span class="post-cat text-success text-uppercase">MYSQL</span></a>
-                                                </div>
-                                                <h3 class="post-title font-weight-900 mb-20">
-                                                    <a class="text-white" href="single.html"><?php echo strtoupper($curso['cur_titulo']); ?></a>
-                                                </h3>
-                                                <?php if (!empty($curso['descripcion'])) { ?>
-                                                    <p class="mt-2 font-weight-500"> <?php echo substr($curso['descripcion'], -120) ?></p>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php foreach ($cursoSindestacar as $curso) { ?>
-                        <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
+                    <?php foreach ($cursoN as $curso) { ?>
+                        <?php if ($curso['episodio'] != 1) {
+                            continue;
+                        } ?>
+                        <article class="col-lg-8 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                             <div class="post-card-1 border-radius-10 hover-up">
-                                <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']) ?>)">
-                                    <a class="img-link" href="<?php cursos_url($curso['slug'])  ?>"></a>
-                                    <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                                <div class="post-thumb thumb-overlay img-hover-slide position-relative">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="<?php echo $curso['iframe'] ?>" allowfullscreen></iframe>
+                                    </div>
                                     <ul class="social-share">
                                         <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
                                         <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
@@ -263,10 +211,41 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                 <div class="post-content p-30">
                                     <div class="d-flex post-card-content">
                                         <h5 class="post-title mb-20 font-weight-900">
-                                            <a href="/cursos/online/<?php echo $curso['slug'] ?>"><?php echo strtoupper($curso['cur_titulo']) ?></a>
-                                            <?php if (!empty($curso['descripcion'])) { ?>
-                                                <p class="my-4 font-weight-500"><?php echo $curso['descripcion'] ?></p>
-                                            <?php } ?>
+                                            <a href="#"><?php echo strtoupper($curso['cur_titulo']) . " Capitulo " . $curso['episodio'] ?></a>
+                                            <p class="my-4 font-weight-500"><?php echo 'Capitulo #' . $curso['episodio'] . ' Del Curso: ' . $curso['cur_titulo'] ?> </p>
+                                        </h5>
+                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                            <span class="post-on"><?php echo fecha($curso['fecha']) ?></span>
+                                            <span class="time-reading has-dot">12 mins</span>
+                                            <span class="post-by has-dot">23k Vistas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    <?php } ?>
+                    <?php foreach ($cursoN as $curso) { ?>
+                        <?php if ($curso['episodio'] == 1) {
+                            continue;
+                        } ?>
+                        <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
+                            <div class="post-card-1 border-radius-10 hover-up">
+                                <div class="post-thumb thumb-overlay img-hover-slide position-relative">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="<?php echo $curso['iframe'] ?>" allowfullscreen></iframe>
+                                    </div>
+                                    <ul class="social-share">
+                                        <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="post-content p-30">
+                                    <div class="d-flex post-card-content">
+                                        <h5 class="post-title mb-20 font-weight-900">
+                                            <a href="#"><?php echo strtoupper($curso['cur_titulo']) . " Capitulo " . $curso['episodio'] ?></a>
+                                            <p class="my-4 font-weight-500"><?php echo 'Capitulo #' . $curso['episodio'] . ' Del Curso: ' . $curso['cur_titulo'] ?> </p>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                             <span class="post-on"><?php echo fecha($curso['fecha']) ?></span>

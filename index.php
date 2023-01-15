@@ -10,13 +10,13 @@ switch ($request) {
         break;
     case "/route":
         require __DIR__ . './route.php';
-    break;
-    case "/cursos/".basename($request)."":
-        require __DIR__ . './controllers/controller.php';
         break;
-        case "/login":
-            require __DIR__ . '/public/login.php';
-            break;
+    case "/cursos/" . basename($request) . "":
+        require __DIR__ . './public/Cursos/index.php';
+        break;
+    case "/login":
+        require __DIR__ . '/public/login.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/public/404.php';
