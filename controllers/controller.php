@@ -12,12 +12,8 @@ foreach($array as $nombre){
     echo $nombre.'<br>';
 }
 
-echo '<br>';
+$url = $_SERVER['REQUEST_URI'];
 
-$id = substr($_SERVER['REQUEST_URI'],-1);
-
-echo intval($id);
-
-echo '<br>';
-
-echo $array[$id];
+echo basename($url);
+echo '<br><br>';
+echo $url;

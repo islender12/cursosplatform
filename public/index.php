@@ -228,7 +228,7 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                     <div class="position-relative post-thumb">
                                         <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(<?php assets($curso['cur_img']); ?>)">
                                             <span class="top-right-icon bg-info"><i id="<?php $curso['cur_id'] ?>" class="elegant-icon icon_pencil"></i></span>
-                                            <a class="img-link" href="single.html"></a>
+                                            <a class="img-link" href="<?php cursos_url($curso['slug'])?>"></a>
                                             <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
                                                 <div class="entry-meta meta-0 font-small mb-20">
                                                     <a href="#"><span class="post-cat text-info text-uppercase">PHP</span></a>
@@ -238,7 +238,7 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                                     <a class="text-white" href="single.html"><?php echo strtoupper($curso['cur_titulo']); ?></a>
                                                 </h3>
                                                 <?php if (!empty($curso['descripcion'])) { ?>
-                                                    <p class="mt-2 font-weight-500"> <?php echo substr($curso['descripcion'],-120)?></p>
+                                                    <p class="mt-2 font-weight-500"> <?php echo substr($curso['descripcion'], -120) ?></p>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -270,7 +270,7 @@ $cursoSindestacar = $cursos->listaSinDestacar();
                                             <?php } ?>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on"><?php echo fecha($curso['fecha'])?></span>
+                                            <span class="post-on"><?php echo fecha($curso['fecha']) ?></span>
                                             <span class="time-reading has-dot">12 mins</span>
                                             <span class="post-by has-dot">23k Vistas</span>
                                         </div>

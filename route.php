@@ -19,6 +19,12 @@ function assets(string $url)
     return $redirect;
 }
 
+function cursos_url(string $slug)
+{
+    $url = print("/cursos/$slug");
+    return $url;
+}
+
 
 function fecha($fecha)
 {

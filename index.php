@@ -1,7 +1,6 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
-
 switch ($request) {
     case '/':
         require __DIR__ . '/public/index.php';
@@ -12,7 +11,7 @@ switch ($request) {
     case "/route":
         require __DIR__ . './route.php';
     break;
-    case "/controller/".substr($request,-1)."":
+    case "/cursos/".basename($request)."":
         require __DIR__ . './controllers/controller.php';
         break;
         case "/login":
